@@ -1,11 +1,10 @@
 import "./App.css";
-import React, { Component } from "react";
+import React from "react";
 
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routing-config";
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
-export default class App extends Component {
-  render() {
-    return <RouterProvider router={router} />;
-  }
-}
+export default App;

@@ -1,2 +1,15 @@
 73e61cef512d4f619ffed2de6310b362
 api key
+  let [articles, setArticles] = useState([]);
+  let [loading, setLoading] = useState(false);
+  let [totalElem, setTotalElem] = useState(0);
+  let [progress, setProgress] = useState(0);
+
+  api_key = process.env.REACT_APP_KEY_NEWS;
+
+  capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  // document.title = `${this.capitalizeFirstLetter(
+  //   this.props.category
+  // )} - News Channel`;
