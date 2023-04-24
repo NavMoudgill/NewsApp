@@ -15,14 +15,10 @@ const NewsItem = (props) => {
         alt="..."
       />
       <div className="card-body">
+        <div className="container"></div>
         <h5 className="card-title">
           {title}...
-          <span
-            className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-secondary text-light"
-            // style={{
-            //   left: "80%",
-            // }}
-          >
+          <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-secondary text-light">
             {source}
           </span>
         </h5>
