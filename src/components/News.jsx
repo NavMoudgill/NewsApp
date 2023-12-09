@@ -12,7 +12,6 @@ const News = (props) => {
   let [totalResults, setTotalResults] = useState(0);
   let [page, setPage] = useState(1);
 
-  // let [page, setPage] = useState(1);
   const api_key = process.env.REACT_APP_KEY_NEWS;
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -20,24 +19,16 @@ const News = (props) => {
   document.title = `${capitalizeFirstLetter(props.category)} - News Channel`;
 
   const updateNews = async () => {
-    // console.log(api_key);
     let url = `https://newsapi.org/v2/top-headlines?apiKey=${api_key}&page=${page}&country=${props.country}&pagesize=${props.pageSize}&category=${props.category}`;
     setLoading(true);
     let data = await fetch(url);
     page === 1 && setProgress(30);
 
     let parsedData = await data.json();
-    // setState({
-    //   totalElem: totalElem + parsedData.articles.length,
-    // });
+
     setTotalElem(totalElem + parsedData.articles.length);
     page === 1 && setProgress(70);
-    // console.log("hello", props.category);
-    // setState({
-    //   articles: articles.concat(parsedData.articles),
-    //   totalResults: parsedData.totalResults,
-    //   loading: false,
-    // });
+
     setArticles(articles.concat(parsedData.articles));
     setTotalResults(parsedData.totalResults);
     setLoading(false);
@@ -52,15 +43,11 @@ const News = (props) => {
     setPage(page + 1);
     updateNews();
   };
-  // componentDidUpdate(prevProps) {
-  //   console.log("component did update", prevProps);
-  // }
 
-  // console.log(articles.length);
   return (
     <>
       <LoadingBar height={3} color="#f11946" progress={progress} />
-      <h2 className="text-center" style={{ marginTop: "66px" }}>
+      <h2 className="text-center" style={{ marginTop: "77px" }}>
         News Channel - Top headlines from{" "}
         {capitalizeFirstLetter(props.category)}
       </h2>
